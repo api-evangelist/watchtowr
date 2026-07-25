@@ -1,0 +1,86 @@
+openapi: 3.0.3
+info:
+  title: watchTowr Platform Client Activity Log Assets API
+  description: 'The watchTowr Platform Client API provides read and write access to your external attack surface managed by the watchTowr Preemptive Exposure Management platform: discovered assets (domains, subdomains, IP addresses and ranges, ports, containers, cloud storage, mobile applications, SaaS platforms and source code repositories), security findings, hunts, certificates, business units, points of interest, service listings, suspicious domains and the activity log. Data is retrieved over HTTPS using paginated list endpoints and authenticated with a per-tenant API bearer token. Reconstructed by API Evangelist from the official watchtowr/watchtowr-api-sdk (OpenAPI Generator) Python client.'
+  version: '1.0'
+  contact:
+    name: watchTowr
+    url: https://watchtowr.com
+servers:
+- url: https://{tenant}.{region}.watchtowr.io
+  description: Per-tenant watchTowr Platform instance
+  variables:
+    tenant:
+      default: your-tenant
+      description: Your watchTowr tenant name
+    region:
+      default: your-region
+      description: Your watchTowr region
+security:
+- bearerAuth: []
+tags:
+- name: Assets
+paths:
+  /api/client/seeddata:
+    post:
+      tags:
+      - Assets
+      summary: Submit a new seed asset for discovery
+      operationId: submit_asset
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '422':
+          description: Unprocessable Content
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UnprocessableContent'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+components:
+  schemas:
+    Unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Unauthenticated.
+    UnprocessableContent:
+      type: object
+      properties:
+        message:
+          type: string
+        errors:
+          type: object
+    ForbiddenResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: This action is unauthorized.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: API key issued from the watchTowr Platform dashboard (Settings -> API Management / Integrations -> Client API), sent as a Bearer token.

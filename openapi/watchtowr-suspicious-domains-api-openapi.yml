@@ -1,0 +1,124 @@
+openapi: 3.0.3
+info:
+  title: watchTowr Platform Client Activity Log Suspicious Domains API
+  description: 'The watchTowr Platform Client API provides read and write access to your external attack surface managed by the watchTowr Preemptive Exposure Management platform: discovered assets (domains, subdomains, IP addresses and ranges, ports, containers, cloud storage, mobile applications, SaaS platforms and source code repositories), security findings, hunts, certificates, business units, points of interest, service listings, suspicious domains and the activity log. Data is retrieved over HTTPS using paginated list endpoints and authenticated with a per-tenant API bearer token. Reconstructed by API Evangelist from the official watchtowr/watchtowr-api-sdk (OpenAPI Generator) Python client.'
+  version: '1.0'
+  contact:
+    name: watchTowr
+    url: https://watchtowr.com
+servers:
+- url: https://{tenant}.{region}.watchtowr.io
+  description: Per-tenant watchTowr Platform instance
+  variables:
+    tenant:
+      default: your-tenant
+      description: Your watchTowr tenant name
+    region:
+      default: your-region
+      description: Your watchTowr region
+security:
+- bearerAuth: []
+tags:
+- name: Suspicious Domains
+paths:
+  /api/client/suspicious-domain/list:
+    get:
+      tags:
+      - Suspicious Domains
+      summary: List all suspicious domains
+      operationId: get_list_suspicious_domain
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+      parameters:
+      - name: page
+        in: query
+        required: false
+        description: Pagination page. The default value is 1.
+        schema:
+          type: number
+      - name: page_size
+        in: query
+        required: false
+        description: Pagination size. The default value is 10 and the maximum is 30.
+        schema:
+          type: number
+  /api/client/suspicious-domain/show/{id}:
+    get:
+      tags:
+      - Suspicious Domains
+      summary: Show the details of a suspicious domain
+      operationId: get_suspicious_domain_details
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unauthorized'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ForbiddenResponse'
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotFound'
+      parameters:
+      - name: id
+        in: path
+        required: true
+        description: Identifier of the id.
+        schema:
+          type: string
+components:
+  schemas:
+    Unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Unauthenticated.
+    NotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Resource not found.
+    ForbiddenResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: This action is unauthorized.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: API key issued from the watchTowr Platform dashboard (Settings -> API Management / Integrations -> Client API), sent as a Bearer token.
