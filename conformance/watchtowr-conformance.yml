@@ -1,0 +1,28 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/watchtowr-platform-openapi.yml + https://watchtowr.com (probed 2026-07-21)
+standards:
+- id: rfc6750-bearer-token
+  conforms: true
+  evidence: Single http/bearer securityScheme applied to every operation (per-tenant Platform API key sent as a Bearer token).
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 securityScheme in the OpenAPI; authentication is static API keys issued in the Platform dashboard.
+- id: oidc
+  conforms: false
+  evidence: No openIdConnect scheme; /.well-known/openid-configuration returns 404.
+- id: pagination
+  conforms: true
+  evidence: Uniform offset pagination on every list operation (page, page_size params; default 10, max 30; meta.pagination envelope with total/count/per_page/current_page/total_pages).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors are plain application/json {message} envelopes, not application/problem+json (see errors/watchtowr-problem-types.yml).
+- id: idempotency
+  conforms: false
+  evidence: No Idempotency-Key header or idempotency contract in the OpenAPI or public docs.
+- id: rfc9116-security-txt
+  conforms: true
+  evidence: security.txt published at https://watchtowr.com/security.txt with Contact/Policy/Expires (saved at well-known/watchtowr-security.txt); served at the root path rather than /.well-known/.
+- id: json-api
+  conforms: false
+  evidence: Responses are bespoke JSON, not JSON:API media type.

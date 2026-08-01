@@ -1,0 +1,31 @@
+# generated: '2026-07-21'
+# method: generated
+# source: API Evangelist enrichment of openapi/watchtowr-platform-openapi.yml
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for the watchTowr Platform Client API
+  version: 1.0.0
+extends: openapi/watchtowr-platform-openapi.yml
+actions:
+- target: $.info
+  update:
+    x-apievangelist:
+      provider: watchtowr
+      profile: https://raw.githubusercontent.com/api-evangelist/watchtowr/refs/heads/main/apis.yml
+      knowledge_base: https://kb.watchtowr.io/
+      status_page: https://status.watchtowr.io/
+      mcp_server: https://github.com/watchtowr/watchtowr-mcp
+      sdks:
+      - https://github.com/watchtowr/watchtowr-api-sdk-python
+      - https://github.com/watchtowr/watchtowr-api-sdk-powershell
+- target: $.info
+  update:
+    x-conventions:
+      pagination: offset (page/page_size, default 10, max 30, meta.pagination envelope)
+      errors: plain JSON {message} envelope; {message, errors} on 422
+      authentication: per-tenant Platform API key as Bearer token
+- target: $
+  update:
+    externalDocs:
+      description: watchTowr Knowledgebase
+      url: https://kb.watchtowr.io/

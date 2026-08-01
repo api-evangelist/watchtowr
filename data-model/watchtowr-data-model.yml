@@ -1,0 +1,42 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  Derived from the resource paths and tags of openapi/watchtowr-platform-openapi.yml.
+  The spec's response schemas are opaque (type: object), so relationships are
+  taken from the nested list endpoints (hunt -> findings/assets, IP -> ports)
+  and the uniform asset-status pattern — not from $ref links.
+notation: >-
+  relationships use has_one / has_many / belongs_to with the endpoint that
+  expresses them; direction is from the owning entity.
+entities:
+- {name: Finding, domain: exposure, description: A validated security finding on the attack surface; has status, PDF export, and retest actions.}
+- {name: Hunt, domain: exposure, description: A watchTowr hunt (e.g. rapid-reaction campaign) that groups affected assets and findings.}
+- {name: Domain, domain: assets, description: A discovered root domain asset.}
+- {name: Subdomain, domain: assets, description: A discovered subdomain asset.}
+- {name: IPAddress, domain: assets, description: A discovered IP address asset.}
+- {name: IPRange, domain: assets, description: A discovered IP range asset.}
+- {name: Port, domain: assets, description: An open port discovered on an IP address.}
+- {name: Container, domain: assets, description: A discovered container asset.}
+- {name: CloudStorage, domain: assets, description: A discovered cloud storage asset (e.g. exposed bucket).}
+- {name: MobileApplication, domain: assets, description: A discovered mobile application asset.}
+- {name: SaaSPlatform, domain: assets, description: A discovered SaaS platform in use.}
+- {name: SourceCodeRepository, domain: assets, description: A discovered source code repository asset.}
+- {name: Certificate, domain: assets, description: A TLS certificate observed on the attack surface.}
+- {name: BusinessUnit, domain: organization, description: A business unit assets are attributed to.}
+- {name: PointOfInterest, domain: exposure, description: A notable observation on the attack surface.}
+- {name: ServiceListing, domain: assets, description: A discovered running service.}
+- {name: SuspiciousDomain, domain: exposure, description: A lookalike/suspicious domain (phishing/typosquat monitoring).}
+- {name: ActivityLogEntry, domain: platform, description: An audit record of platform activity.}
+- {name: SeedAsset, domain: assets, description: A seed (domain/IP/etc.) submitted to bootstrap discovery.}
+relationships:
+- {from: Hunt, to: Finding, type: has_many, via: 'GET /api/client/hunts/show/{id}/findings'}
+- {from: Hunt, to: Asset, type: has_many, via: 'GET /api/client/hunts/show/{id}/assets (any asset class)'}
+- {from: IPAddress, to: Port, type: has_many, via: 'GET /api/client/assets/ip/show/{id}/port/list'}
+- {from: Finding, to: Asset, type: belongs_to, via: 'findings are raised against discovered assets'}
+- {from: Asset, to: BusinessUnit, type: belongs_to, via: 'assets are attributed to business units'}
+- {from: SeedAsset, to: Asset, type: has_many, via: 'POST /api/client/seeddata seeds discovery of assets'}
+notes: >-
+  "Asset" is the abstract parent of the nine concrete asset classes (Domain,
+  Subdomain, IPAddress, IPRange, Port, Container, CloudStorage,
+  MobileApplication, SaaSPlatform, SourceCodeRepository) — each shares the
+  same list / show / update-status endpoint triad.

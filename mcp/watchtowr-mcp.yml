@@ -1,0 +1,363 @@
+generated: '2026-07-21'
+method: searched
+status: published
+source: https://github.com/watchtowr/watchtowr-mcp
+description: 'watchTowr publishes an official open-source MCP server (watchtowr/watchtowr-mcp, v0.1.2) that connects
+  AI assistants to the watchTowr Platform Client API — attack surface assets, findings, hunts, certificates, suspicious
+  domains, threat intel, plus composite intelligence tools (attack-surface summaries, change detection, executive
+  scorecards, compliance reporting). Self-hosted: stdio for MCP clients or HTTP as a standalone service (Docker
+  supported). Authenticates with a watchTowr Platform API key and per-tenant host; no hosted remote endpoint is
+  published. Tool list extracted from the server source (fastmcp).'
+server:
+  name: watchtowr-mcp
+  transport: stdio | http (self-hosted)
+  install: git clone --recurse-submodules https://github.com/watchtowr/watchtowr-mcp.git && uv sync && WATCHTOWR_API_KEY=...
+    WATCHTOWR_PLATFORM_HOST=https://your-tenant.your-region.watchtowr.io uv run watchtowr-mcp
+  docker: docker run -it --rm -e WATCHTOWR_API_KEY=... -e WATCHTOWR_PLATFORM_HOST=... watchtowr-mcp
+  auth: apiKey (watchTowr Platform API key, per-tenant host)
+  sdk: https://github.com/watchtowr/watchtowr-api-sdk-python (git submodule)
+tool_count: 113
+tools:
+- name: get_asset_changelog
+  module: changelog
+  description: Get change history (changelog) for a specific asset.
+- name: list_asset_ips
+  module: core
+  description: List discovered IP addresses.
+- name: get_asset_ip_details
+  module: core
+  description: Get full details for a specific IP address asset.
+- name: list_ports_for_ip
+  module: core
+  description: List all discovered ports belonging to a specific IP address.
+- name: get_ip_port_details
+  module: core
+  description: Get full details for a specific port belonging to an IP address.
+- name: list_asset_domains
+  module: core
+  description: List discovered root domains.
+- name: get_asset_domain_details
+  module: core
+  description: Get full details for a specific domain.
+- name: list_asset_subdomains
+  module: core
+  description: List discovered subdomains.
+- name: get_asset_subdomain_details
+  module: core
+  description: Get full details for a specific subdomain.
+- name: list_asset_ports
+  module: core
+  description: List discovered open ports across assets.
+- name: get_asset_port_details
+  module: core
+  description: Get full details for a specific port including banner and service.
+- name: list_asset_ip_ranges
+  module: core
+  description: List discovered IP ranges with ASN and country information.
+- name: get_asset_iprange_details
+  module: core
+  description: Get full details for a specific IP range.
+- name: list_cloud_storage_assets
+  module: core
+  description: List discovered cloud storage assets (S3, GCS, Azure blobs, etc.).
+- name: get_asset_cloud_storage_details
+  module: core
+  description: Get full details for a specific cloud storage asset.
+- name: list_source_code_repositories
+  module: core
+  description: List discovered source code repositories.
+- name: get_asset_repository_details
+  module: core
+  description: Get full details for a specific source code repository.
+- name: list_container_assets
+  module: core
+  description: List discovered container registry images.
+- name: get_asset_container_details
+  module: core
+  description: Get full details for a specific container registry image.
+- name: list_saas_platforms
+  module: core
+  description: List discovered SaaS platform instances.
+- name: get_asset_saas_details
+  module: core
+  description: Get full details for a specific SaaS platform instance.
+- name: list_mobile_app_assets
+  module: core
+  description: List discovered mobile applications.
+- name: get_asset_mobile_app_details
+  module: core
+  description: Get full details for a specific mobile application.
+- name: list_cloud_assets
+  module: core
+  description: List discovered cloud assets (AWS, GCP, Azure, etc.).
+- name: get_cloud_asset_details
+  module: core
+  description: Get full details for a specific cloud asset.
+- name: list_api_documentations
+  module: core
+  description: List discovered API documentation assets.
+- name: get_api_documentation_details
+  module: core
+  description: Get full details for a specific API documentation asset.
+- name: list_package_managers
+  module: core
+  description: List discovered package manager registry assets.
+- name: get_package_manager_details
+  module: core
+  description: Get full details for a specific package manager asset.
+- name: manage_engine_settings
+  module: core
+  description: Get or update scan engine settings for a domain, subdomain, or IP asset.
+- name: set_asset_criticality
+  module: core
+  description: Set the criticality level for any supported asset type.
+- name: manage_asset_business_units
+  module: core
+  description: Assign or unassign business units for any supported asset type.
+- name: manage_asset_custom_property
+  module: core
+  description: List, create, update, or delete custom properties on an asset.
+- name: manage_asset_notes
+  module: core
+  description: List, create, update, or delete notes on an asset.
+- name: update_asset_status
+  module: core
+  description: Update the status of any asset type.
+- name: add_seed_asset
+  module: core
+  description: Submit a new seed asset for discovery and monitoring.
+- name: get_asset_dns_records
+  module: dns
+  description: Get DNS records associated with a specific asset by name.
+- name: search_dns_records
+  module: dns
+  description: Search DNS records globally across all monitored assets.
+- name: get_attack_surface_summary
+  module: composite
+  description: Get an overview of the entire attack surface with asset counts by type and finding counts by severity.
+- name: get_new_assets_since
+  module: composite
+  description: List all newly discovered assets across every type within a given number of days.
+- name: get_attack_surface_delta
+  module: composite
+  description: Get a combined view of new assets AND new findings discovered within a time window.
+- name: get_business_unit_posture
+  module: composite
+  description: 'Get a full security posture overview for a business unit: details, unresolved findings, asset counts,
+    services, certificates, and points of interest.'
+- name: get_finding_with_asset_context
+  module: composite
+  description: Get finding details enriched with the related asset's full details.
+- name: get_expiring_certificates_with_services
+  module: composite
+  description: List certificates expiring within N days, cross-referenced with exposed services on the same hosts.
+- name: get_hunt_remediation_list
+  module: composite
+  description: Get expanded finding details for a hunt, formatted for remediation handoff.
+- name: get_critical_exposure_report
+  module: composite
+  description: 'Executive-level exposure summary: critical/high finding counts, CISA-KEV count, expiring certificates,
+    and top recurring finding titles.'
+- name: get_findings_by_asset
+  module: composite
+  description: Search findings associated with a specific asset by looking up the asset name first.
+- name: get_stale_findings
+  module: composite
+  description: List findings that have been open/unresolved for more than N days.
+- name: get_unassigned_critical_findings
+  module: composite
+  description: List critical and high severity findings that have no assignee.
+- name: get_asset_findings_count_by_type
+  module: composite
+  description: Get a count of unresolved findings broken down by asset type.
+- name: get_shadow_it_candidates
+  module: composite
+  description: List newly discovered assets that are not assigned to any business unit.
+- name: list_cisa_kev_findings
+  module: findings
+  description: List findings tagged as CISA-KEV (Known Exploited Vulnerabilities).
+- name: list_findings_by_severity
+  module: findings
+  description: List findings filtered by severity level.
+- name: get_finding_details
+  module: findings
+  description: Get full details for a specific finding including description, evidence, CVSS, CVE, EPSS, and retest
+    history.
+- name: search_findings
+  module: findings
+  description: Search findings with rich filters.
+- name: update_finding_status
+  module: findings
+  description: Update the status of a finding. Use get_finding_statuses to see available values.
+- name: retest_finding
+  module: findings
+  description: Trigger a retest for a specific finding to verify remediation.
+- name: get_finding_statuses
+  module: findings
+  description: List all available finding status values.
+- name: get_findings_summary_by_severity
+  module: findings
+  description: Get a count breakdown of findings by severity level.
+- name: get_unresolved_findings_by_business_unit
+  module: findings
+  description: List open/unresolved findings for a specific business unit.
+- name: export_finding_pdf
+  module: findings
+  description: Export a finding report as PDF.
+- name: update_finding_state
+  module: findings
+  description: Update the handling state of a finding (e.g. Uninvestigated, In Progress, Completed).
+- name: list_recent_hunts
+  module: hunts
+  description: List recent hunts with their findings and asset counts.
+- name: get_hunt_details
+  module: hunts
+  description: Get full details for a specific hunt including description, hypothesis, and references.
+- name: list_findings_by_hunt
+  module: hunts
+  description: List all findings discovered by a specific hunt.
+- name: list_assets_by_hunt
+  module: hunts
+  description: List all assets tested by a specific hunt.
+- name: search_hunts
+  module: hunts
+  description: Search hunts with rich filters.
+- name: get_hunt_impact_summary
+  module: hunts
+  description: 'Get a combined impact summary for a hunt: detail, findings by severity, and assets tested.'
+- name: search_assets_by_country
+  module: incident
+  description: Find services located in a specific country.
+- name: get_internet_facing_services_summary
+  module: incident
+  description: Aggregate view of exposed services grouped by service type with counts.
+- name: get_assets_by_technology
+  module: incident
+  description: Find all services running a specific technology (e.g. Apache, nginx, Exchange).
+- name: get_cisa_kev_remediation_status
+  module: incident
+  description: CISA-KEV tagged findings grouped by status to show KEV compliance posture.
+- name: find_related_assets
+  module: incident
+  description: Find assets related to a given asset — subdomains under a domain, ports on an IP, etc.
+- name: list_vulnerability_intelligence
+  module: intelligence
+  description: List vulnerability intelligence entries (CVEs tracked by watchTowr).
+- name: get_vulnerability_intelligence_details
+  module: intelligence
+  description: Get full details for a vulnerability intelligence entry.
+- name: list_adversary_intelligence
+  module: intelligence
+  description: List adversary intelligence profiles (threat actors tracked by watchTowr).
+- name: get_adversary_intelligence_details
+  module: intelligence
+  description: Get full details for an adversary intelligence profile.
+- name: list_finding_retest_history
+  module: intelligence
+  description: List finding retest history across all findings (global audit view).
+- name: get_finding_retest_history_details
+  module: intelligence
+  description: Get retest history for a specific finding (all retest runs).
+- name: search_active_defense_library
+  module: intelligence
+  description: Browse or search the active defense rule library.
+- name: search_capabilities
+  module: intelligence
+  description: Search watchTowr security coverage by hunt title, CVE ID, or TTP tactic.
+- name: get_watchtowr_source_ips
+  module: organization
+  description: Get watchTowr Platform source IP addresses that should be whitelisted.
+- name: get_activity_logs
+  module: organization
+  description: Get recent activity logs from the watchTowr Platform.
+- name: search_activity_logs
+  module: organization
+  description: Search activity logs with filters for type, user, keyword, and date range.
+- name: list_business_units
+  module: organization
+  description: List business units. Useful for discovering BU IDs to filter other tools.
+- name: get_business_unit_details
+  module: organization
+  description: Get full details for a specific business unit.
+- name: get_asset_inventory_by_business_unit
+  module: reporting
+  description: Full asset inventory for a business unit with counts and sample assets per type.
+- name: get_out_of_scope_assets
+  module: reporting
+  description: List all assets marked as out of scope or incorrect identification across all types.
+- name: get_verified_vs_unverified_assets
+  module: reporting
+  description: Breakdown of asset verification status across all types (verified vs unverified counts).
+- name: get_finding_age_distribution
+  module: reporting
+  description: Bucket open findings by age (0-7d, 7-30d, 30-90d, 90d+) and severity.
+- name: get_finding_status_timeline
+  module: reporting
+  description: Show how many findings were opened vs remediated per week over the last N days.
+- name: get_open_ports_summary
+  module: reporting
+  description: Summarize the most common open ports across the attack surface with counts.
+- name: get_assets_without_findings
+  module: reporting
+  description: List asset types that have assets but zero unresolved findings — potential coverage gaps.
+- name: get_certificate_health_report
+  module: reporting
+  description: 'Certificates grouped by health: expired, expiring within 7 days, expiring within 30 days, and valid.'
+- name: get_executive_risk_scorecard
+  module: reporting
+  description: 'Single-call executive risk dashboard: total assets, findings by severity, CISA-KEV, mean finding
+    age, expiring certs, and newest finding.'
+- name: get_week_over_week_delta
+  module: reporting
+  description: 'Weekly trend report: new assets and new findings per week.'
+- name: get_security_posture
+  module: reporting
+  description: Get the security posture dashboard — overall score, coverage metrics, and trends.
+- name: get_top_findings_by_occurrence
+  module: reporting
+  description: Most frequently occurring finding titles across the attack surface — reveals systemic issues.
+- name: list_technology_statistics
+  module: services
+  description: List technology statistics for discovered services, ordered by count.
+- name: list_services
+  module: services
+  description: List exposed services across the attack surface with extensive filtering.
+- name: list_suspicious_domains
+  module: threat_intel
+  description: List domains flagged as suspicious (typosquatting, lookalikes, brand impersonation).
+- name: get_suspicious_domain_details
+  module: threat_intel
+  description: Get full details for a suspicious domain including WHOIS data.
+- name: list_points_of_interest
+  module: threat_intel
+  description: List points of interest (leaked credentials, exposed configs, interesting endpoints).
+- name: list_certificates
+  module: threat_intel
+  description: List SSL/TLS certificates with subject, issuer, and expiry information.
+- name: get_certificate_details
+  module: threat_intel
+  description: Get full details for a specific certificate including subject, issuer, SANs, and validity.
+- name: get_expiring_certificates
+  module: threat_intel
+  description: List certificates expiring within a given number of days.
+- name: search_pending_domains
+  module: threat_intel
+  description: List pending/unclaimed domains that could be claimed by adversaries.
+- name: get_recent_remediations
+  module: workflow
+  description: List findings remediated within the last N days.
+- name: get_daily_digest
+  module: workflow
+  description: '24-hour digest: new assets, new findings, and recent activity log entries.'
+- name: bulk_retest_findings
+  module: workflow
+  description: Trigger retests for multiple findings at once.
+- name: bulk_update_finding_status
+  module: workflow
+  description: Update the status of multiple findings at once.
+- name: get_actionable_findings_queue
+  module: workflow
+  description: Prioritized queue of open findings sorted by severity then age, optionally filtered by assignee.
+- name: get_findings_needing_assignment
+  module: workflow
+  description: All open findings with no assignee, grouped by severity — the triage inbox.

@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: https://watchtowr.com (site header/footer, probed 2026-07-21) + openapi/watchtowr-platform-openapi.yml
+versioning:
+  scheme: none-in-path
+  current: '1.0'
+  notes: >-
+    The Client API is served under the stable /api/client prefix on each
+    per-tenant host (https://{tenant}.{region}.watchtowr.io); the OpenAPI
+    declares info.version 1.0. No public versioning policy is published.
+deprecation:
+  policy_url: null
+  sunset_header: null
+  notes: No public deprecation policy or RFC 8594 Sunset-header commitment found; no operations are marked deprecated in the OpenAPI.
+sla:
+  url: null
+  notes: No public SLA found; uptime is published on the status page.
+status_page: https://status.watchtowr.io/
+knowledge_base: https://kb.watchtowr.io/
+deprecated_operations: []

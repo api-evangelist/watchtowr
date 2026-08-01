@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: generated
+source: >-
+  Packaged Agent Skills generated from openapi/watchtowr-platform-openapi.yml
+  (reconstructed from the official watchtowr-api-sdk-python). Every step is
+  grounded in an operationId verified verbatim in the spec; cross-cutting
+  rules cite conventions/, errors/ and authentication/.
+skills:
+- file: watchtowr-triage-findings.md
+  name: Triage and retest security findings
+  api: openapi/watchtowr-platform-openapi.yml
+  operations: [get_list_findings, get_finding_details, get_available_finding_statuses, update_finding_status, start_specific_finding_retest, export_pdf_for_finding]
+- file: watchtowr-inventory-attack-surface.md
+  name: Inventory the external attack surface
+  api: openapi/watchtowr-platform-openapi.yml
+  operations: [get_list_asset_domains, get_list_asset_subdomains, get_list_asset_ips, get_asset_ip_details, get_asset_ip_ports, get_list_asset_cloud_storages, get_list_asset_repositories, get_list_certificates, submit_asset]
+- file: watchtowr-monitor-hunts.md
+  name: Monitor rapid-reaction hunts
+  api: openapi/watchtowr-platform-openapi.yml
+  operations: [get_client_hunts, show_the_detail_hunt, get_list_asset_by_hunt, get_list_finding_by_hunt, get_list_suspicious_domain]

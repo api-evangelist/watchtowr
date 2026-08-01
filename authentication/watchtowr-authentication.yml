@@ -1,0 +1,14 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/watchtowr-platform-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: API key issued from the watchTowr Platform dashboard (Settings -> API Management
+    / Integrations -> Client API), sent as a Bearer token.
+  sources:
+  - openapi/watchtowr-platform-openapi.yml

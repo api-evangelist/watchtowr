@@ -1,0 +1,69 @@
+generated: '2026-07-21'
+method: derived
+source: >-
+  openapi/watchtowr-platform-openapi.yml (reconstructed from the official
+  watchtowr/watchtowr-api-sdk-python OpenAPI Generator SDK) plus the public
+  watchTowr surface probed 2026-07-21. Cross-cutting request/response
+  semantics of the watchTowr Platform Client API.
+description: >-
+  How the watchTowr Platform Client API behaves across all 52 operations:
+  per-tenant hosts, bearer API-key authentication, uniform offset pagination,
+  a plain-JSON message error envelope, and read/write asset-status semantics.
+base_url: https://{tenant}.{region}.watchtowr.io
+api_style: REST over HTTPS, JSON responses, /api/client path prefix
+
+authentication:
+  scheme: HTTP Bearer — Platform API key sent as a Bearer token
+  issuance: watchTowr Platform dashboard (Settings -> API Management / Integrations -> Client API)
+  tenancy: Keys are per-tenant; the host embeds tenant and region.
+  detail: authentication/watchtowr-authentication.yml
+
+idempotency:
+  supported: false
+  notes: >-
+    No Idempotency-Key header or retry-safety contract is documented. GET
+    reads are inherently idempotent; PUT status updates are idempotent by
+    semantics; POST retest/seed-data submissions have no documented
+    deduplication.
+
+pagination:
+  style: offset (page-numbered)
+  request_params:
+    page: Pagination page. Default 1.
+    page_size: Page size. Default 10, maximum 30.
+  response_fields:
+    meta.pagination.total: total records
+    meta.pagination.count: records in this page
+    meta.pagination.per_page: page size
+    meta.pagination.current_page: current page number
+    meta.pagination.total_pages: total pages
+  applies_to: every list operation (findings, hunts, all asset classes, certificates, business units, activity log)
+
+field_expansion:
+  supported: false
+
+metadata:
+  supported: false
+
+request_tracing:
+  supported: null
+  notes: No request-id header documented publicly.
+
+versioning:
+  scheme: none-in-path (stable /api/client prefix, info.version 1.0)
+  detail: lifecycle/watchtowr-lifecycle.yml
+
+error_envelope:
+  content_type: application/json
+  shape: '{message} on 401/403/404; {message, errors} on 422'
+  detail: errors/watchtowr-problem-types.yml
+
+rate_limits:
+  documented: false
+  notes: No public rate-limit documentation or response headers found.
+
+write_semantics:
+  notes: >-
+    Writes are narrow and stateful rather than CRUD — PUT update-status on
+    each asset class, POST finding status updates and retests, and POST
+    /api/client/seeddata to submit new seed assets for discovery.

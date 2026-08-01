@@ -1,9 +1,33 @@
 aid: watchtowr
 name: watchTowr
-description: 'watchTowr is a company surfaced as a portfolio company of prosus-ventures and added to the
-  API Evangelist network as a stub for enrichment. Sector: security. This profile is a lead awaiting the
-  enrichment pipeline.'
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 20
+  pass: local-v1
+description: >-
+  watchTowr is a Preemptive Exposure Management (PEM) and External Attack
+  Surface Management (EASM) platform founded by hackers, combining continuous
+  attack surface discovery, continuous automated red teaming, AI-powered Rapid
+  Reaction to emerging CVEs, Active Defense autonomous mitigation, and
+  watchTowr Intel proactive threat intelligence. The Platform Client API gives
+  read and write access to discovered assets, findings, hunts, certificates
+  and suspicious domains, with official Python and PowerShell SDKs and an
+  official open-source MCP server (113 tools). Backed by Prosus Ventures.
 url: https://raw.githubusercontent.com/api-evangelist/watchtowr/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://watchtowr.com/wp-content/uploads/Feature-Image-.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -12,11 +36,259 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Security
-apis: []
+- Cybersecurity
+- Attack Surface Management
+- EASM
+- Exposure Management
+- Threat Intelligence
+- Vulnerability Management
+apis:
+- aid: watchtowr:watchtowr-activity-log-api
+  name: watchTowr Activity Log API
+  description: The Activity Log API from watchTowr — 1 operation(s) for activity log.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Activity Log
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-activity-log-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-assets-api
+  name: watchTowr Assets API
+  description: The Assets API from watchTowr — 1 operation(s) for assets.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-assets-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-business-unit-api
+  name: watchTowr Business Unit API
+  description: The Business Unit API from watchTowr — 2 operation(s) for business unit.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Business Unit
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-business-unit-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-certificates-api
+  name: watchTowr Certificates API
+  description: The Certificates API from watchTowr — 2 operation(s) for certificates.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Certificates
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-certificates-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-cloud-storage-api
+  name: watchTowr Cloud Storage API
+  description: The Cloud Storage API from watchTowr — 3 operation(s) for cloud storage.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Cloud Storage
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-cloud-storage-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-containers-api
+  name: watchTowr Containers API
+  description: The Containers API from watchTowr — 3 operation(s) for containers.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Containers
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-containers-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-domains-api
+  name: watchTowr Domains API
+  description: The Domains API from watchTowr — 3 operation(s) for domains.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Domains
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-domains-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-findings-api
+  name: watchTowr Findings API
+  description: The Findings API from watchTowr — 6 operation(s) for findings.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Findings
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-findings-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-hunts-api
+  name: watchTowr Hunts API
+  description: The Hunts API from watchTowr — 4 operation(s) for hunts.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Hunts
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-hunts-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-ip-addresses-api
+  name: watchTowr IP Addresses API
+  description: The IP Addresses API from watchTowr — 5 operation(s) for ip addresses.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - IP Addresses
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-ip-addresses-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-ip-ranges-api
+  name: watchTowr IP Ranges API
+  description: The IP Ranges API from watchTowr — 3 operation(s) for ip ranges.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - IP Ranges
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-ip-ranges-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-mobile-applications-api
+  name: watchTowr Mobile Applications API
+  description: The Mobile Applications API from watchTowr — 3 operation(s) for mobile applications.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Mobile Applications
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-mobile-applications-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-points-of-interest-api
+  name: watchTowr Points of Interest API
+  description: The Points of Interest API from watchTowr — 1 operation(s) for points of interest.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Points of Interest
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-points-of-interest-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-ports-api
+  name: watchTowr Ports API
+  description: The Ports API from watchTowr — 2 operation(s) for ports.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Ports
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-ports-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-saas-platforms-api
+  name: watchTowr SaaS Platforms API
+  description: The SaaS Platforms API from watchTowr — 3 operation(s) for saas platforms.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - SaaS Platforms
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-saas-platforms-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-service-listing-api
+  name: watchTowr Service Listing API
+  description: The Service Listing API from watchTowr — 1 operation(s) for service listing.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Service Listing
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-service-listing-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-source-code-repositories-api
+  name: watchTowr Source Code Repositories API
+  description: >-
+    The Source Code Repositories API from watchTowr — 3 operation(s) for source code repositories.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Source Code Repositories
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-source-code-repositories-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-subdomains-api
+  name: watchTowr Subdomains API
+  description: The Subdomains API from watchTowr — 3 operation(s) for subdomains.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Subdomains
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-subdomains-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-suspicious-domains-api
+  name: watchTowr Suspicious Domains API
+  description: The Suspicious Domains API from watchTowr — 2 operation(s) for suspicious domains.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Suspicious Domains
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-suspicious-domains-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
+- aid: watchtowr:watchtowr-testing-infrastructure-api
+  name: watchTowr Testing Infrastructure API
+  description: >-
+    The Testing Infrastructure API from watchTowr — 1 operation(s) for testing infrastructure.
+  humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
+  baseURL: https://{tenant}.{region}.watchtowr.io
+  tags:
+  - Testing Infrastructure
+  properties:
+  - type: OpenAPI
+    url: openapi/watchtowr-testing-infrastructure-api-openapi.yml
+  - type: Documentation
+    url: https://github.com/watchtowr/watchtowr-api-sdk-python
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -25,3 +297,57 @@ maintainers:
 common:
 - type: Website
   url: https://watchtowr.com
+- type: Documentation
+  url: https://kb.watchtowr.io/
+- type: Portal
+  url: https://client.watchtowr.io/
+- type: Login
+  url: https://client.watchtowr.io/
+- type: StatusPage
+  url: https://status.watchtowr.io/
+- type: Blog
+  url: https://labs.watchtowr.com/
+- type: GitHubOrganization
+  url: https://github.com/watchtowr
+- type: Support
+  url: https://watchtowr.com/company/contact/
+- type: Careers
+  url: https://careers.watchtowr.com/
+- type: PrivacyPolicy
+  url: https://watchtowr.com/privacy-policy/
+- type: Security
+  url: https://vdp.watchtowr.com/p/Policy
+- type: VulnerabilityDisclosure
+  url: security/watchtowr-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/watchtowr-domain-security.yml
+- type: Authentication
+  url: authentication/watchtowr-authentication.yml
+- type: AgenticAccess
+  url: agentic-access/watchtowr-agentic-access.yml
+- type: MCPServer
+  url: mcp/watchtowr-mcp.yml
+- type: Packages
+  url: packages/watchtowr-packages.yml
+- type: SDKs
+  url: packages/watchtowr-packages.yml
+- type: WellKnown
+  url: well-known/watchtowr-well-known.yml
+- type: SecurityTxt
+  url: well-known/watchtowr-security.txt
+- type: LLMsTxt
+  url: llms/watchtowr-llms.txt
+- type: Overlay
+  url: overlays/watchtowr-platform-overlay.yaml
+- type: Conformance
+  url: conformance/watchtowr-conformance.yml
+- type: ErrorCatalog
+  url: errors/watchtowr-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/watchtowr-lifecycle.yml
+- type: Conventions
+  url: conventions/watchtowr-conventions.yml
+- type: DataModel
+  url: data-model/watchtowr-data-model.yml
+- type: AgentSkill
+  url: skills/_index.yml

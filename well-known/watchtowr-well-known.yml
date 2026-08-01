@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: searched
+host: https://watchtowr.com
+notes: >-
+  security.txt is published at the root path /security.txt (the /.well-known/
+  location returns 404). The /.well-known/oauth-authorization-server document
+  is real JSON but appears to be served by the marketing site's WordPress
+  "Royal MCP" plugin (scopes_supported [mcp:full], service_documentation
+  royalplugins.com/support/royal-mcp) — it is NOT the authorization server for
+  the watchTowr Platform Client API, which authenticates with per-tenant
+  bearer API keys. Probed 2026-07-21.
+documents:
+- path: /security.txt
+  status: 200
+  file: watchtowr-security.txt
+- path: /.well-known/security.txt
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  status: 200
+  file: watchtowr-oauth-authorization-server.json
+- path: /.well-known/openid-configuration
+  status: 404
+- path: /.well-known/api-catalog
+  status: 404
+- path: /.well-known/ai-plugin.json
+  status: 404
+- path: /llms.txt
+  status: 200
+  file: ../llms/watchtowr-llms.txt

@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/watchtowr
+notes: >-
+  watchTowr distributes its first-party client libraries from GitHub only —
+  verified 2026-07-21 that nothing is published to PyPI (watchtowr,
+  watchtowr-api-sdk, watchtowr-mcp all 404) or the PowerShell Gallery. The
+  Python SDK is generated with OpenAPI Generator and is the source the
+  official MCP server pins as a git submodule. JupiterOne ships a third-party
+  integration package on npm from its partnership with watchTowr.
+packages:
+- language: python
+  registry: github
+  name: watchtowr-api-sdk-python
+  url: https://github.com/watchtowr/watchtowr-api-sdk-python
+  install: pip install git+https://github.com/watchtowr/watchtowr-api-sdk-python.git
+  description: watchTowr Platform Client API SDK (Python), generated with OpenAPI Generator.
+  official: true
+- language: powershell
+  registry: github
+  name: watchtowr-api-sdk-powershell
+  url: https://github.com/watchtowr/watchtowr-api-sdk-powershell
+  install: git clone https://github.com/watchtowr/watchtowr-api-sdk-powershell.git
+  description: watchTowr Platform Client API SDK (PowerShell).
+  official: true
+- language: python
+  registry: github
+  name: watchtowr-mcp
+  url: https://github.com/watchtowr/watchtowr-mcp
+  install: git clone --recurse-submodules https://github.com/watchtowr/watchtowr-mcp.git && uv sync
+  description: Official MCP server for the watchTowr Platform (113 tools; stdio/HTTP, Docker).
+  official: true
+- language: javascript
+  registry: npm
+  name: '@jupiterone/graph-watchtowr'
+  url: https://www.npmjs.com/package/@jupiterone/graph-watchtowr
+  install: npm install @jupiterone/graph-watchtowr
+  description: JupiterOne graph integration for watchTowr (third-party, from the JupiterOne partnership).
+  official: false

@@ -1,0 +1,35 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/watchtowr-platform-openapi.yml
+format: json-message-envelope
+notes: >-
+  The watchTowr Platform Client API does not use RFC 9457 application/problem+json.
+  Errors are plain application/json with a `message` string; 422 validation
+  failures add a field-keyed `errors` object. Derived from the 4xx responses
+  declared across all 52 operations in the OpenAPI.
+envelope:
+  content_type: application/json
+  fields:
+    message: Human-readable error description.
+    errors: Field-keyed validation errors (422 only).
+problems:
+- status: 401
+  title: Unauthorized
+  detail: 'Missing or invalid API bearer token. Example message: "Unauthenticated."'
+  schema: openapi/watchtowr-platform-openapi.yml#/components/schemas/Unauthorized
+  applies_to: all operations
+- status: 403
+  title: Forbidden
+  detail: 'The token is valid but not permitted to perform this action. Example message: "This action is unauthorized."'
+  schema: openapi/watchtowr-platform-openapi.yml#/components/schemas/ForbiddenResponse
+  applies_to: all operations
+- status: 404
+  title: Not Found
+  detail: 'The requested resource id does not exist in this tenant. Example message: "Resource not found."'
+  schema: openapi/watchtowr-platform-openapi.yml#/components/schemas/NotFound
+  applies_to: all show/update/export operations with an {id} path parameter
+- status: 422
+  title: Unprocessable Content
+  detail: Validation failed on the request body; the `errors` object keys each invalid field.
+  schema: openapi/watchtowr-platform-openapi.yml#/components/schemas/UnprocessableContent
+  applies_to: write operations (status updates, retests, seed-asset submission)
