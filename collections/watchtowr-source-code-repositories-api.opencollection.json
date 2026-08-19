@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "watchTowr Platform Client Activity Log Source Code Repositories API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Source Code Repositories",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all source code repository assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.{region}.watchtowr.io/api/client/assets/repository/list",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Pagination page. The default value is 1."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Pagination size. The default value is 10 and the maximum is 30."
+              }
+            ]
+          },
+          "docs": "List all source code repository assets"
+        },
+        {
+          "info": {
+            "name": "Show the details of a source code repository asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.{region}.watchtowr.io/api/client/assets/repository/show/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the id."
+              }
+            ]
+          },
+          "docs": "Show the details of a source code repository asset"
+        },
+        {
+          "info": {
+            "name": "Update the status of a source code repository asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tenant}.{region}.watchtowr.io/api/client/assets/repository/update-status/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the status of a source code repository asset"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

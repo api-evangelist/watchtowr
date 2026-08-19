@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "watchTowr Platform Client Activity Log Points of Interest API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Points of Interest",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all points of interest",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.{region}.watchtowr.io/api/client/points-of-interest/list",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Pagination page. The default value is 1."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Pagination size. The default value is 10 and the maximum is 30."
+              }
+            ]
+          },
+          "docs": "List all points of interest"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

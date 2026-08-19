@@ -1,0 +1,147 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "watchTowr Platform Client Activity Log IP Addresses API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "IP Addresses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all IP address assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.{region}.watchtowr.io/api/client/assets/ip/list",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Pagination page. The default value is 1."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Pagination size. The default value is 10 and the maximum is 30."
+              }
+            ]
+          },
+          "docs": "List all IP address assets"
+        },
+        {
+          "info": {
+            "name": "Show the details of an IP address asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.{region}.watchtowr.io/api/client/assets/ip/show/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the id."
+              }
+            ]
+          },
+          "docs": "Show the details of an IP address asset"
+        },
+        {
+          "info": {
+            "name": "List ports for an IP address asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.{region}.watchtowr.io/api/client/assets/ip/show/:id/port/list",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the id."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Pagination page. The default value is 1."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Pagination size. The default value is 10 and the maximum is 30."
+              }
+            ]
+          },
+          "docs": "List ports for an IP address asset"
+        },
+        {
+          "info": {
+            "name": "Show the details of a port on an IP address asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.{region}.watchtowr.io/api/client/assets/ip/show/:ipId/port/show/:portId",
+            "params": [
+              {
+                "name": "ipId",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the ipId."
+              },
+              {
+                "name": "portId",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the portId."
+              }
+            ]
+          },
+          "docs": "Show the details of a port on an IP address asset"
+        },
+        {
+          "info": {
+            "name": "Update the status of an IP address asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tenant}.{region}.watchtowr.io/api/client/assets/ip/update-status/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the status of an IP address asset"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

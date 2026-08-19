@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "watchTowr Platform Client Activity Log Business Unit API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Business Unit",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all business units",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.{region}.watchtowr.io/api/client/business-unit/list",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Pagination page. The default value is 1."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Pagination size. The default value is 10 and the maximum is 30."
+              }
+            ]
+          },
+          "docs": "List all business units"
+        },
+        {
+          "info": {
+            "name": "Show the details of a business unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.{region}.watchtowr.io/api/client/business-unit/show/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the id."
+              }
+            ]
+          },
+          "docs": "Show the details of a business unit"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

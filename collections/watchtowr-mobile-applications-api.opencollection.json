@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "watchTowr Platform Client Activity Log Mobile Applications API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Mobile Applications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List all mobile application assets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.{region}.watchtowr.io/api/client/assets/mobileApp/list",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Pagination page. The default value is 1."
+              },
+              {
+                "name": "page_size",
+                "value": "",
+                "type": "query",
+                "description": "Pagination size. The default value is 10 and the maximum is 30."
+              }
+            ]
+          },
+          "docs": "List all mobile application assets"
+        },
+        {
+          "info": {
+            "name": "Show the details of a mobile application asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.{region}.watchtowr.io/api/client/assets/mobileApp/show/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the id."
+              }
+            ]
+          },
+          "docs": "Show the details of a mobile application asset"
+        },
+        {
+          "info": {
+            "name": "Update the status of a mobile application asset",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tenant}.{region}.watchtowr.io/api/client/assets/mobileApp/update-status/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Identifier of the id."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update the status of a mobile application asset"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

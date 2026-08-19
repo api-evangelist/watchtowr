@@ -2,17 +2,19 @@ generated: '2026-07-21'
 method: searched
 status: published
 source: https://github.com/watchtowr/watchtowr-mcp
-description: 'watchTowr publishes an official open-source MCP server (watchtowr/watchtowr-mcp, v0.1.2) that connects
-  AI assistants to the watchTowr Platform Client API — attack surface assets, findings, hunts, certificates, suspicious
-  domains, threat intel, plus composite intelligence tools (attack-surface summaries, change detection, executive
-  scorecards, compliance reporting). Self-hosted: stdio for MCP clients or HTTP as a standalone service (Docker
-  supported). Authenticates with a watchTowr Platform API key and per-tenant host; no hosted remote endpoint is
-  published. Tool list extracted from the server source (fastmcp).'
+description: 'watchTowr publishes an official open-source MCP server (watchtowr/watchtowr-mcp, v0.1.2)
+  that connects AI assistants to the watchTowr Platform Client API — attack surface assets, findings,
+  hunts, certificates, suspicious domains, threat intel, plus composite intelligence tools (attack-surface
+  summaries, change detection, executive scorecards, compliance reporting). Self-hosted: stdio for MCP
+  clients or HTTP as a standalone service (Docker supported). Authenticates with a watchTowr Platform
+  API key and per-tenant host; no hosted remote endpoint is published. Tool list extracted from the server
+  source (fastmcp).'
 server:
   name: watchtowr-mcp
   transport: stdio | http (self-hosted)
-  install: git clone --recurse-submodules https://github.com/watchtowr/watchtowr-mcp.git && uv sync && WATCHTOWR_API_KEY=...
-    WATCHTOWR_PLATFORM_HOST=https://your-tenant.your-region.watchtowr.io uv run watchtowr-mcp
+  install: git clone --recurse-submodules https://github.com/watchtowr/watchtowr-mcp.git && uv sync &&
+    WATCHTOWR_API_KEY=... WATCHTOWR_PLATFORM_HOST=https://your-tenant.your-region.watchtowr.io uv run
+    watchtowr-mcp
   docker: docker run -it --rm -e WATCHTOWR_API_KEY=... -e WATCHTOWR_PLATFORM_HOST=... watchtowr-mcp
   auth: apiKey (watchTowr Platform API key, per-tenant host)
   sdk: https://github.com/watchtowr/watchtowr-api-sdk-python (git submodule)
@@ -134,7 +136,8 @@ tools:
   description: Search DNS records globally across all monitored assets.
 - name: get_attack_surface_summary
   module: composite
-  description: Get an overview of the entire attack surface with asset counts by type and finding counts by severity.
+  description: Get an overview of the entire attack surface with asset counts by type and finding counts
+    by severity.
 - name: get_new_assets_since
   module: composite
   description: List all newly discovered assets across every type within a given number of days.
@@ -143,21 +146,22 @@ tools:
   description: Get a combined view of new assets AND new findings discovered within a time window.
 - name: get_business_unit_posture
   module: composite
-  description: 'Get a full security posture overview for a business unit: details, unresolved findings, asset counts,
-    services, certificates, and points of interest.'
+  description: 'Get a full security posture overview for a business unit: details, unresolved findings,
+    asset counts, services, certificates, and points of interest.'
 - name: get_finding_with_asset_context
   module: composite
   description: Get finding details enriched with the related asset's full details.
 - name: get_expiring_certificates_with_services
   module: composite
-  description: List certificates expiring within N days, cross-referenced with exposed services on the same hosts.
+  description: List certificates expiring within N days, cross-referenced with exposed services on the
+    same hosts.
 - name: get_hunt_remediation_list
   module: composite
   description: Get expanded finding details for a hunt, formatted for remediation handoff.
 - name: get_critical_exposure_report
   module: composite
-  description: 'Executive-level exposure summary: critical/high finding counts, CISA-KEV count, expiring certificates,
-    and top recurring finding titles.'
+  description: 'Executive-level exposure summary: critical/high finding counts, CISA-KEV count, expiring
+    certificates, and top recurring finding titles.'
 - name: get_findings_by_asset
   module: composite
   description: Search findings associated with a specific asset by looking up the asset name first.
@@ -181,8 +185,8 @@ tools:
   description: List findings filtered by severity level.
 - name: get_finding_details
   module: findings
-  description: Get full details for a specific finding including description, evidence, CVSS, CVE, EPSS, and retest
-    history.
+  description: Get full details for a specific finding including description, evidence, CVSS, CVE, EPSS,
+    and retest history.
 - name: search_findings
   module: findings
   description: Search findings with rich filters.
@@ -302,11 +306,12 @@ tools:
   description: List asset types that have assets but zero unresolved findings — potential coverage gaps.
 - name: get_certificate_health_report
   module: reporting
-  description: 'Certificates grouped by health: expired, expiring within 7 days, expiring within 30 days, and valid.'
+  description: 'Certificates grouped by health: expired, expiring within 7 days, expiring within 30 days,
+    and valid.'
 - name: get_executive_risk_scorecard
   module: reporting
-  description: 'Single-call executive risk dashboard: total assets, findings by severity, CISA-KEV, mean finding
-    age, expiring certs, and newest finding.'
+  description: 'Single-call executive risk dashboard: total assets, findings by severity, CISA-KEV, mean
+    finding age, expiring certs, and newest finding.'
 - name: get_week_over_week_delta
   module: reporting
   description: 'Weekly trend report: new assets and new findings per week.'
@@ -357,7 +362,17 @@ tools:
   description: Update the status of multiple findings at once.
 - name: get_actionable_findings_queue
   module: workflow
-  description: Prioritized queue of open findings sorted by severity then age, optionally filtered by assignee.
+  description: Prioritized queue of open findings sorted by severity then age, optionally filtered by
+    assignee.
 - name: get_findings_needing_assignment
   module: workflow
   description: All open findings with no assignee, grouped by severity — the triage inbox.
+deployment:
+  mode: none
+  endpoint: https://your-tenant.your-region.watchtowr.io
+  verified: probed
+  probe: dead
+  note: the endpoint this manifest claimed did not answer; recorded as none rather than deleted so the
+    claim stays auditable
+  checked: '2026-08-12'
+  source: catalog MCP census
