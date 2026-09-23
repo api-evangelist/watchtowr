@@ -1,7 +1,7 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: watchTowr Platform Client Activity Log Subdomains API
-  description: 'The watchTowr Platform Client API provides read and write access to your external attack surface managed by the watchTowr Preemptive Exposure Management platform: discovered assets (domains, subdomains, IP addresses and ranges, ports, containers, cloud storage, mobile applications, SaaS platforms and source code repositories), security findings, hunts, certificates, business units, points of interest, service listings, suspicious domains and the activity log. Data is retrieved over HTTPS using paginated list endpoints and authenticated with a per-tenant API bearer token. Reconstructed by API Evangelist from the official watchtowr/watchtowr-api-sdk (OpenAPI Generator) Python client.'
+  title: watchTowr Platform Client Subdomains API
+  description: 'The watchTowr Platform Client API provides read and write access to your external attack surface managed by the watchTowr Preemptive Exposure Management platform: discovered assets (domains, subdomains, IP addresses and ranges, ports, containers, cloud storage, mobile applications, SaaS platforms and source code repositories), security findings, hunts, certificates, business units, points of interest, service listings, suspicious domains and the activity log.'
   version: '1.0'
   contact:
     name: watchTowr
@@ -149,6 +149,12 @@ paths:
               type: object
 components:
   schemas:
+    NotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Resource not found.
     Unauthorized:
       type: object
       properties:
@@ -162,12 +168,6 @@ components:
           type: string
         errors:
           type: object
-    NotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Resource not found.
     ForbiddenResponse:
       type: object
       properties:
