@@ -175,18 +175,18 @@ paths:
           type: string
 components:
   schemas:
-    NotFound:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Resource not found.
     Unauthorized:
       type: object
       properties:
         message:
           type: string
           example: Unauthenticated.
+    NotFound:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Resource not found.
     ForbiddenResponse:
       type: object
       properties:

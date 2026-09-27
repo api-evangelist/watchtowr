@@ -200,6 +200,8 @@ apis:
   humanURL: https://github.com/watchtowr/watchtowr-api-sdk-python
   baseURL: https://{tenant}.{region}.watchtowr.io
   tags:
+  - Mobile App
+  tags_raw:
   - Mobile Applications
   properties:
   - type: OpenAPI
