@@ -60,12 +60,6 @@ paths:
               type: object
 components:
   schemas:
-    Unauthorized:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Unauthenticated.
     UnprocessableContent:
       type: object
       properties:
@@ -73,6 +67,12 @@ components:
           type: string
         errors:
           type: object
+    Unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Unauthenticated.
     ForbiddenResponse:
       type: object
       properties:
