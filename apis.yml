@@ -312,6 +312,9 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: CapabilityMap
+  url: capabilities/watchtowr-capability-edges.yml
+  name: watchTowr Business Capability Map
 - type: Website
   url: https://watchtowr.com
 - type: Documentation

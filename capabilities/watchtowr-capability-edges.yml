@@ -1,0 +1,174 @@
+slug: watchtowr
+provider: watchTowr
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 16
+edges:
+- tag: Findings
+  spec_file: watchtowr-findings-api-openapi.yml
+  capability_id: BC-620.40
+  capability_id_l1: BC-620
+  capability_name: Vulnerability Management
+  confidence: 0.8
+  evidence: '"List all findings", "Start a retest of a specific finding", "Update the status of a finding",
+    "Export a finding as PDF"'
+  reason: Lifecycle of security findings — listing, statuses, retest and remediation tracking — which
+    is the core of vulnerability identification and remediation management on an exposure-management platform.
+- tag: IP Addresses
+  spec_file: watchtowr-ip-addresses-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.8
+  evidence: '"List all IP address assets" / "read and write access to your external attack surface ...
+    discovered assets (domains, subdomains, IP addresses and ranges, ports ...)"'
+  reason: Inventory of externally discovered IP assets within an External Attack Surface Management platform
+    — a cybersecurity capability. The operations are pure asset discovery/status management, so no single
+    L2 (vulnerability scanning vs. security governance) is clearly named; L1 only.
+- tag: IP Ranges
+  spec_file: watchtowr-ip-ranges-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.8
+  evidence: '"List all IP range assets"; "external attack surface managed by the watchTowr Preemptive
+    Exposure Management platform"'
+  reason: 'Same EASM asset-inventory surface: listing and status-managing discovered IP ranges is cybersecurity
+    attack-surface management, not network/IT infrastructure provisioning. L2 not determinable from the
+    operations.'
+- tag: Subdomains
+  spec_file: watchtowr-subdomains-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.8
+  evidence: '"List all subdomain assets" / "Show the details of a subdomain asset"'
+  reason: Subdomain discovery and status management within the EASM attack-surface inventory; squarely
+    cybersecurity, no specific L2 named by the operations.
+- tag: Mobile Applications
+  spec_file: watchtowr-mobile-applications-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.78
+  evidence: '"List all mobile application assets" / "Update the status of a mobile application asset"'
+  reason: Despite the product-sounding tag, the operations manage discovered mobile apps as external attack-surface
+    assets, i.e. cybersecurity exposure inventory — not product lifecycle management.
+- tag: Ports
+  spec_file: watchtowr-ports-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.78
+  evidence: '"List all port assets" / "Show the details of a port asset"'
+  reason: Open-port inventory of the external attack surface — cybersecurity exposure discovery. Not a
+    logistics or networking-operations capability; L2 not pinned by the evidence.
+- tag: Assets
+  spec_file: watchtowr-assets-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.75
+  evidence: POST /api/client/seeddata — "Submit a new seed asset for discovery"
+  reason: Submits seed assets into the external attack surface discovery engine of a security platform
+    ("discovered assets (domains, subdomains, IP addresses...)"). Clearly cybersecurity management; attack-surface
+    discovery does not cleanly match one listed L2, so L1 only.
+- tag: Cloud Storage
+  spec_file: watchtowr-cloud-storage-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.75
+  evidence: GET /api/client/assets/cloudStorage/list — "List all cloud storage assets"; PUT update-status
+    — "Update the status of a cloud storage asset"
+  reason: Discovered cloud storage buckets as attack-surface assets with status triage. This is external
+    attack surface / exposure management, i.e. Cybersecurity Management at L1; sub-capability not pinned
+    by the evidence.
+- tag: Containers
+  spec_file: watchtowr-containers-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.75
+  evidence: GET /api/client/assets/container/list — "List all container assets"; "Update the status of
+    a container asset"
+  reason: Container assets discovered and triaged as part of external attack surface management, not IT
+    infrastructure provisioning. Mapped to Cybersecurity Management at L1 only.
+- tag: Domains
+  spec_file: watchtowr-domains-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.75
+  evidence: GET /api/client/assets/domain/list — "List all domain assets"; "Update the status of a domain
+    asset"
+  reason: Domain assets in the discovered external attack surface, with status triage — security exposure
+    management rather than DNS/domain administration. Cybersecurity Management at L1.
+- tag: SaaS Platforms
+  spec_file: watchtowr-saas-platforms-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.75
+  evidence: '"List all SaaS platform assets" / "Update the status of a SaaS platform asset"'
+  reason: 'Homograph risk: this is not SaaS tenant or subscription management — the operations treat discovered
+    SaaS platforms as external attack-surface assets (shadow SaaS discovery), a cybersecurity capability.'
+- tag: Source Code Repositories
+  spec_file: watchtowr-source-code-repositories-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.75
+  evidence: '"List all source code repository assets" / "Update the status of a source code repository
+    asset"'
+  reason: Not software construction/source control — the operations only inventory exposed repositories
+    as attack-surface assets, which is cybersecurity exposure management.
+- tag: Suspicious Domains
+  spec_file: watchtowr-suspicious-domains-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.75
+  evidence: '"List all suspicious domains" / "Show the details of a suspicious domain"'
+  reason: Detection and review of lookalike/suspicious domains is threat-intelligence-driven cybersecurity
+    monitoring. Could be threat detection (BC-620.30) but the read-only listing is not conclusive, so
+    L1 only.
+- tag: Certificates
+  spec_file: watchtowr-certificates-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.7
+  evidence: GET /api/client/certificates/list — "List all certificates" within "your external attack surface
+    managed by the watchTowr Preemptive Exposure Management platform"
+  reason: Inventory of TLS/SSL certificates discovered on the external attack surface — a security monitoring
+    artefact. Cybersecurity Management at L1; no listed L2 specifically covers certificate inventory.
+- tag: Hunts
+  spec_file: watchtowr-hunts-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.7
+  evidence: GET /api/client/hunts/list — "List all hunts"; "List findings for a hunt"
+  reason: Hunts are the platform's assessment/red-teaming campaigns that produce assets and findings.
+    Clearly cybersecurity work; ambiguous between threat detection and vulnerability management, so L1
+    only.
+- tag: Service Listing
+  spec_file: watchtowr-service-listing-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.7
+  evidence: '"List all discovered services"'
+  reason: '''Service Listing'' here means services discovered on the external attack surface, not an IT
+    service catalogue or marketplace listing. Maps to cybersecurity exposure discovery; thin surface so
+    L1 only.'
