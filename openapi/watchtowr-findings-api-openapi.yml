@@ -269,6 +269,12 @@ components:
           type: string
         errors:
           type: object
+    ForbiddenResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: This action is unauthorized.
     NotFound:
       type: object
       properties:
@@ -281,12 +287,6 @@ components:
         message:
           type: string
           example: Unauthenticated.
-    ForbiddenResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: This action is unauthorized.
   securitySchemes:
     bearerAuth:
       type: http

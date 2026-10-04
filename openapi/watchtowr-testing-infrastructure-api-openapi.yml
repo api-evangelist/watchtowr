@@ -61,18 +61,18 @@ paths:
           type: number
 components:
   schemas:
-    Unauthorized:
-      type: object
-      properties:
-        message:
-          type: string
-          example: Unauthenticated.
     ForbiddenResponse:
       type: object
       properties:
         message:
           type: string
           example: This action is unauthorized.
+    Unauthorized:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Unauthenticated.
   securitySchemes:
     bearerAuth:
       type: http
