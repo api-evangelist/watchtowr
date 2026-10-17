@@ -269,18 +269,18 @@ components:
           type: string
         errors:
           type: object
-    ForbiddenResponse:
-      type: object
-      properties:
-        message:
-          type: string
-          example: This action is unauthorized.
     NotFound:
       type: object
       properties:
         message:
           type: string
           example: Resource not found.
+    ForbiddenResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: This action is unauthorized.
     Unauthorized:
       type: object
       properties:
