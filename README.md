@@ -64,6 +64,154 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-watchTowr is a company surfaced as a portfolio company of prosus-ventures and added to the API Evangelist network as a stub for enrichment. Sector: security. This profile is a lead awaiting the enrichment pipeline.
+watchTowr is a Preemptive Exposure Management (PEM) and External Attack Surface Management (EASM) platform founded by hackers, combining continuous attack surface discovery, continuous automated red teaming, AI-powered Rapid Reaction to emerging CVEs, Active Defense autonomous mitigation, and watchTowr Intel proactive threat intelligence. The Platform Client API gives read and write access to discovered assets, findings, hunts, certificates and suspicious domains, with official Python and PowerShell SDKs and an official open-source MCP server (113 tools). Backed by Prosus Ventures.
 
-Backed by: prosus-ventures — https://watchtowr.com
+**Areas:** Company · Security · Cybersecurity · Attack Surface Management · EASM · Exposure Management · Threat Intelligence · Vulnerability Management
+
+## watchTowr on APIs.io
+
+Everything profiled for watchTowr is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/watchtowr/](https://apis.io/providers/watchtowr/)** — or go straight to one of the APIs or properties below.
+
+### APIs (20)
+
+- [watchTowr Activity Log API](https://apis.io/apis/watchtowr/watchtowr-activity-log-api/) — The Activity Log API from watchTowr — 1 operation(s) for activity log.
+- [watchTowr Assets API](https://apis.io/apis/watchtowr/watchtowr-assets-api/) — The Assets API from watchTowr — 1 operation(s) for assets.
+- [watchTowr Business Unit API](https://apis.io/apis/watchtowr/watchtowr-business-unit-api/) — The Business Unit API from watchTowr — 2 operation(s) for business unit.
+- [watchTowr Certificates API](https://apis.io/apis/watchtowr/watchtowr-certificates-api/) — The Certificates API from watchTowr — 2 operation(s) for certificates.
+- [watchTowr Cloud Storage API](https://apis.io/apis/watchtowr/watchtowr-cloud-storage-api/) — The Cloud Storage API from watchTowr — 3 operation(s) for cloud storage.
+- [watchTowr Containers API](https://apis.io/apis/watchtowr/watchtowr-containers-api/) — The Containers API from watchTowr — 3 operation(s) for containers.
+- [watchTowr Domains API](https://apis.io/apis/watchtowr/watchtowr-domains-api/) — The Domains API from watchTowr — 3 operation(s) for domains.
+- [watchTowr Findings API](https://apis.io/apis/watchtowr/watchtowr-findings-api/) — The Findings API from watchTowr — 6 operation(s) for findings.
+- [watchTowr Hunts API](https://apis.io/apis/watchtowr/watchtowr-hunts-api/) — The Hunts API from watchTowr — 4 operation(s) for hunts.
+- [watchTowr IP Addresses API](https://apis.io/apis/watchtowr/watchtowr-ip-addresses-api/) — The IP Addresses API from watchTowr — 5 operation(s) for ip addresses.
+- [watchTowr IP Ranges API](https://apis.io/apis/watchtowr/watchtowr-ip-ranges-api/) — The IP Ranges API from watchTowr — 3 operation(s) for ip ranges.
+- [watchTowr Mobile Applications API](https://apis.io/apis/watchtowr/watchtowr-mobile-applications-api/) — The Mobile Applications API from watchTowr — 3 operation(s) for mobile applications.
+- [watchTowr Points of Interest API](https://apis.io/apis/watchtowr/watchtowr-points-of-interest-api/) — The Points of Interest API from watchTowr — 1 operation(s) for points of interest.
+- [watchTowr Ports API](https://apis.io/apis/watchtowr/watchtowr-ports-api/) — The Ports API from watchTowr — 2 operation(s) for ports.
+- [watchTowr SaaS Platforms API](https://apis.io/apis/watchtowr/watchtowr-saas-platforms-api/) — The SaaS Platforms API from watchTowr — 3 operation(s) for saas platforms.
+- [watchTowr Service Listing API](https://apis.io/apis/watchtowr/watchtowr-service-listing-api/) — The Service Listing API from watchTowr — 1 operation(s) for service listing.
+- [watchTowr Source Code Repositories API](https://apis.io/apis/watchtowr/watchtowr-source-code-repositories-api/) — The Source Code Repositories API from watchTowr — 3 operation(s) for source code repositories.
+- [watchTowr Subdomains API](https://apis.io/apis/watchtowr/watchtowr-subdomains-api/) — The Subdomains API from watchTowr — 3 operation(s) for subdomains.
+- [watchTowr Suspicious Domains API](https://apis.io/apis/watchtowr/watchtowr-suspicious-domains-api/) — The Suspicious Domains API from watchTowr — 2 operation(s) for suspicious domains.
+- [watchTowr Testing Infrastructure API](https://apis.io/apis/watchtowr/watchtowr-testing-infrastructure-api/) — The Testing Infrastructure API from watchTowr — 1 operation(s) for testing infrastructure.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [watchtowr-mcp](https://apis.io/servers/watchtowr/watchtowr-mcp/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Watchtowr Agentic Access](https://apis.io/agentic-access/watchtowr/watchtowr-agentic-access/)
+
+#### Collections (20)
+
+Postman and Open Collection request collections.
+
+- [watchTowr Platform Client Activity Log API](https://apis.io/collections/watchtowr/open-watchtowr-activity-log-api/)
+- [watchTowr Platform Client Activity Log Assets API](https://apis.io/collections/watchtowr/open-watchtowr-assets-api/)
+- [watchTowr Platform Client Activity Log Business Unit API](https://apis.io/collections/watchtowr/open-watchtowr-business-unit-api/)
+- [watchTowr Platform Client Activity Log Certificates API](https://apis.io/collections/watchtowr/open-watchtowr-certificates-api/)
+- [watchTowr Platform Client Activity Log Cloud Storage API](https://apis.io/collections/watchtowr/open-watchtowr-cloud-storage-api/)
+- [watchTowr Platform Client Activity Log Containers API](https://apis.io/collections/watchtowr/open-watchtowr-containers-api/)
+- [watchTowr Platform Client Activity Log Domains API](https://apis.io/collections/watchtowr/open-watchtowr-domains-api/)
+- [watchTowr Platform Client Activity Log Findings API](https://apis.io/collections/watchtowr/open-watchtowr-findings-api/)
+- [watchTowr Platform Client Activity Log Hunts API](https://apis.io/collections/watchtowr/open-watchtowr-hunts-api/)
+- [watchTowr Platform Client Activity Log IP Addresses API](https://apis.io/collections/watchtowr/open-watchtowr-ip-addresses-api/)
+- [watchTowr Platform Client Activity Log IP Ranges API](https://apis.io/collections/watchtowr/open-watchtowr-ip-ranges-api/)
+- [watchTowr Platform Client Activity Log Mobile Applications API](https://apis.io/collections/watchtowr/open-watchtowr-mobile-applications-api/)
+- [watchTowr Platform Client Activity Log Points of Interest API](https://apis.io/collections/watchtowr/open-watchtowr-points-of-interest-api/)
+- [watchTowr Platform Client Activity Log Ports API](https://apis.io/collections/watchtowr/open-watchtowr-ports-api/)
+- [watchTowr Platform Client Activity Log SaaS Platforms API](https://apis.io/collections/watchtowr/open-watchtowr-saas-platforms-api/)
+- [watchTowr Platform Client Activity Log Service Listing API](https://apis.io/collections/watchtowr/open-watchtowr-service-listing-api/)
+- [watchTowr Platform Client Activity Log Source Code Repositories API](https://apis.io/collections/watchtowr/open-watchtowr-source-code-repositories-api/)
+- [watchTowr Platform Client Activity Log Subdomains API](https://apis.io/collections/watchtowr/open-watchtowr-subdomains-api/)
+- [watchTowr Platform Client Activity Log Suspicious Domains API](https://apis.io/collections/watchtowr/open-watchtowr-suspicious-domains-api/)
+- [watchTowr Platform Client Activity Log Testing Infrastructure API](https://apis.io/collections/watchtowr/open-watchtowr-testing-infrastructure-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Watchtowr Platform Overlay](https://apis.io/overlays/watchtowr/watchtowr-platform-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Watchtowr Authentication](https://apis.io/security/watchtowr/watchtowr-authentication/)
+- [Watchtowr Domain Security](https://apis.io/security/watchtowr/watchtowr-domain-security/)
+- [Watchtowr Vulnerability Disclosure](https://apis.io/security/watchtowr/watchtowr-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://watchtowr.com)
+- [Documentation](https://kb.watchtowr.io/)
+- [Support](https://watchtowr.com/company/contact/)
+- [Blog](https://labs.watchtowr.com/)
+- [Security](https://vdp.watchtowr.com/p/Policy)
+- [Privacy policy](https://watchtowr.com/privacy-policy/)
+- [GitHub](https://github.com/watchtowr)
+- [Status](https://status.watchtowr.io/)
+
+## API Evangelist rating
+
+**Kin Score 34.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 46.5 |
+| Contract governance | 4.5 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 47.0 |
+| Access clarity | 10.5 |
+
+**Agent readiness 36.5** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+
+**Regulatory alignment 26.5** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/watchtowr/](https://apis.io/providers/watchtowr/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for watchTowr: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/watchtowr/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
